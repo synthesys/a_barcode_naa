@@ -1,0 +1,31 @@
+.container
+  .row
+    .dropdown
+      button#dLabel(type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false") Select Work Week
+        span.caret
+      ul.dropdown-menu(aria-labelledby="dLabel" ng-repeat="work in $ctrl.workThings")
+        li(role="menuitem") {{work.week}}
+            
+    
+  .row
+    .col-md-4.col-md-offset-4 PAGE 1 of 1 CLOSE
+  .row
+    .col-md-4.col-md-offset-8 Current Date/Time
+  .row
+    .col-md-4 Lot Number: some lot number
+    .col-md-4.col-md-offset-4 Model Name
+  .row
+    img#barcode.col-sm-4
+    barcode.col-sm-4 test2
+    barcode.col-sm-4 test3
+  .row
+    .col-sm-4 Verified:
+    .col-sm-2 Date:
+    .col-sm-4 Received:
+    .col-sm-2 Date:
+  .row
+    .well.well-lg Reason for the Scrap/Not Produced:
+      p
+      p Serial#:
+      p Description of why it was Scrapped.
+      

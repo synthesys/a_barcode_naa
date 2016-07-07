@@ -1,0 +1,52 @@
+.container
+  .row
+    .col-lg-12
+      h1.page-header Work Week:
+      //form for creating a week of gun production    
+      form
+        fieldset.work-form
+          .row
+            .col-xs-2.form-group
+              label Week
+              input.form-control(type="number" min="1" placeholder="Week as #" name="week" ng-model='$ctrl.newWork.week')
+          .row
+            .col-xs-2.form-group
+              label Date
+              input.form-control.datepicker(type="date" date-date-format="mm/dd/yyyy" placeholder="date" name="date" ng-model='$ctrl.newWork.date')
+          .row
+            .col-xs-2.form-group
+              label SH
+              input.form-control(type="number" min="0" placeholder="Qty" name="sh" ng-model='$ctrl.newWork.models.sh')
+            .col-xs-2.form-group
+              label MS
+              input.form-control(type="number" min="0" placeholder="Qty" name="ms" ng-model='$ctrl.newWork.models.ms')
+          .row
+            .col-xs-2.form-group
+              button.btn.btn-primary(type='submit', ng-click='$ctrl.addWork()') Add New
+
+.container
+  .row
+    .col-lg-12
+      //should display what is in the db currently
+      h2 Current Work:
+        table.table.table-striped.table-bordered
+          thead
+            th Work Week
+            th Date
+            th Updated
+            th Models
+            th Total
+            th Options
+          tbody
+            tr(ng-repeat="work in $ctrl.workThings")
+              td {{work.week}}
+              td {{work.date | date:'shortDate'}}
+              td {{work.updated | date:'short'}}
+              td {{work.models.sh}}, {{work.models.ms}}
+              td {{work.models.sh + work.models.ms}}
+              td 
+                button.btn.btn-default(type="button", ng-click="$ctrl.changeView(work._id)") EDIT &nbsp;
+                  i.glyphicon.glyphicon-edit
+                button.btn.btn-danger(type='button', ng-click='$ctrl.deleteWork(work)') DELETE &nbsp; &times;
+            
+            

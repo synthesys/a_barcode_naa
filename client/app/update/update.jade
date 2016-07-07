@@ -1,0 +1,27 @@
+.container
+
+.container
+  .row
+    .col-lg-12
+      h1.page-header Update Work Week:
+      //form for creating a week of gun production    
+      form
+        fieldset.work-form
+          .row
+            .col-xs-2.form-group
+              label Week
+              input.form-control(type="number" min="1" placeholder="Week as #" name="week" ng-model='$ctrl.workThings.week')
+          .row
+            .col-xs-2.form-group
+              label Date
+              input.form-control.datepicker(type="date" date-date-format="mm/dd/yyyy" placeholder="date" name="date" ng-model='$ctrl.workThings.updated')
+          .row
+            .col-xs-2.form-group
+              label SH
+              input.form-control(type="number"  min="0" placeholder="Qty" name="sh" ng-model='$ctrl.workThings.models.sh')
+            .col-xs-2.form-group
+              label MS
+              input.form-control(type="number" min="0" placeholder="Qty" name="ms" ng-model='$ctrl.workThings.models.ms')
+          .row
+            .col-xs-2.form-group
+              button.btn.btn-primary(type='submit', ng-click='$ctrl.updateWork($ctrl.workThings._id)') Update
